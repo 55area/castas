@@ -78,13 +78,13 @@ export function TermsOfUse() {
               </h2>
               
               {/* Main content if exists */}
-              {t(`termsOfUse.sections.${key}.content`) && (
-                <p>{t(`termsOfUse.sections.${key}.content`)}</p>
+              {t(`termsOfUse.sections.${key}.content`, { defaultValue: '' }) && (
+                <p>{t(`termsOfUse.sections.${key}.content`, { defaultValue: '' })}</p>
               )}
               
               {/* Intro if exists */}
-              {t(`termsOfUse.sections.${key}.intro`) && (
-                <p>{t(`termsOfUse.sections.${key}.intro`)}</p>
+              {t(`termsOfUse.sections.${key}.intro`, { defaultValue: '' }) && (
+                <p>{t(`termsOfUse.sections.${key}.intro`, { defaultValue: '' })}</p>
               )}
               
               {/* Items if exist */}

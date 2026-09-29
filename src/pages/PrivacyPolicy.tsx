@@ -64,13 +64,13 @@ export function PrivacyPolicy() {
               </h2>
               
               {/* Main content if exists */}
-              {t(`privacyPolicy.sections.${key}.content`) && (
-                <p>{t(`privacyPolicy.sections.${key}.content`)}</p>
+              {t(`privacyPolicy.sections.${key}.content`, { defaultValue: '' }) && (
+                <p>{t(`privacyPolicy.sections.${key}.content`, { defaultValue: '' })}</p>
               )}
               
               {/* Note if exists */}
-              {t(`privacyPolicy.sections.${key}.note`) && (
-                <p className="mt-2 text-gray-400">{t(`privacyPolicy.sections.${key}.note`)}</p>
+              {t(`privacyPolicy.sections.${key}.note`, { defaultValue: '' }) && (
+                <p className="mt-2 text-gray-400">{t(`privacyPolicy.sections.${key}.note`, { defaultValue: '' })}</p>
               )}
               
               {/* Items if exist */}
