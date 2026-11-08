@@ -139,9 +139,12 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
-# VS Code files
-# Stores VSCode versions used for testing VSCode extensions
+# Visual Studio Code files
 .vscode/
+.history/
+prettierignore.txt
+*.code-workspace
+# Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
 # AI development artifacts: skills, context, prompts, instructions, and agent-specific files
@@ -155,5 +158,4 @@ vite.config.ts.timestamp-*
 .cursorrules
 .windsurfrules
 .opencode/
-openspec/
 skills-lock.json
