@@ -27,10 +27,10 @@ A polarização afetiva pode ser medida em 5 dimensões, cada uma mensurável at
 * **Segregação Identitária**, que observa o quanto a pessoa vive em uma "bolha" de consumo de mídia e círculos sociais exclusivos de seu próprio grupo.
 
 O cálculo do resultado utiliza uma **Escala Likert de 4 pontos** para medir a intensidade de cada resposta:
-* **4 pontos:** Concordo plenamente!
-* **3 pontos:** Concordo, até certo ponto.
-* **2 pontos:** Mais discordo do que concordo.
-* **1 ponto:** Discordo totalmente!
+* **3 pontos:** Concordo plenamente!
+* **2 pontos:** Concordo, até certo ponto.
+* **1 ponto:** Mais discordo do que concordo.
+* **0 pontos:** Discordo totalmente!
 
 Ao final do teste será apresentado o seu resultado, com pontuações em cada uma das dimensões. Caso queira, você poderá compartilhar o resultado em suas redes sociais. A postagem terá o seguinte aspecto *(imagem meramente ilustrativa)*:
 
