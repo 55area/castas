@@ -216,7 +216,3 @@ See [LICENSE](.etc/LICENSE) for more details.
 Copyleft © 2026 <a href="https://x.com/teknolista">Raul Bras</a> 🇧🇷 Published under the GPL v3.0 license. <br>
 Made in Brazil, in the Land of Oz (SP) , with 🌭 🍕 and AI 🤖.
 </small></p>
-
-
-
-
