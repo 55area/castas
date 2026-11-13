@@ -16,7 +16,7 @@ Answers are scored 3, 2, 1, and 0 from strong agreement to strong disagreement. 
 
 ## Requirements
 
-- Node.js 18 or newer
+- Node.js 20.19+, 22.13+, or 24+
 - npm
 
 ## Development
@@ -35,7 +35,7 @@ npm run build
 npm run preview
 ```
 
-The production build runs TypeScript validation before Vite. The app uses React 18, TypeScript, Vite, Tailwind CSS, React Router, i18next, Framer Motion, Emoji Picker React, and Lucide React.
+The production build runs TypeScript validation before Vite. `npm run lint` checks TypeScript and TSX files with ESLint; `npm run lint:fix` applies ESLint's automatic fixes. The app uses React 18, TypeScript, Vite, Tailwind CSS, React Router, i18next, Framer Motion, Emoji Picker React, and Lucide React.
 
 ## Structure
 

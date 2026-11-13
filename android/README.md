@@ -9,7 +9,9 @@ This directory contains the native Android app. The repository [README](../READM
 - Android SDK Platform 36 and Build-Tools 35.0.0
 - Android SDK Platform-Tools for device installation and instrumented tests
 
-Open the `android/` directory in Android Studio. For command-line work, run Gradle commands from this directory. The checked-in wrapper uses Gradle 8.11.1 and verifies the distribution checksum.
+Use JDK 21 as the Gradle runtime in Android Studio and for command-line builds. The repository CI uses JDK 21 as well. With the current Kotlin Gradle scripts, running the wrapper on JDK 25 fails during project configuration; switch the Gradle JDK in Android Studio to JDK 21 or set `JAVA_HOME` before running Gradle.
+
+Open the `android/` directory in Android Studio. For command-line work, run Gradle commands from this directory. The checked-in wrapper uses Gradle 8.11.1, the minimum required by the project's Android Gradle Plugin 8.9.3, and verifies the distribution checksum.
 
 ## Build and verify
 
