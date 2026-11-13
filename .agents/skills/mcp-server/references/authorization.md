@@ -1,0 +1,10 @@
+# Protect remote MCP operations
+
+Read when implementing protected Streamable HTTP, a credential broker, or a proxy. Use the project's identity provider contract and the authorization specification for each supported revision. The [2026-07-28 revision](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization) and the [2025-11-25 revision](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) define their own discovery, registration, and validation rules.
+
+- Advertise Protected Resource Metadata and its authorization servers as required by the revision. Exercise the client's discovery and challenge flow, including the intended resource indicator and scopes. If implementing an OAuth client, verify its PKCE, authorization response issuer checks, redirect validation, and registration mechanism against that revision. Local stdio uses the project's launch and credential boundary.
+- Accept an access token only after validating issuer, intended MCP resource/audience, expiration, and applicable scopes. Verify signatures or use trusted introspection according to token type. Authenticate each protected request and authorize the concrete resource and effect server-side. Session IDs, handles, tool annotations, and names do not grant authority.
+- Obtain a downstream credential through the approved service identity or scoped delegation flow. Never forward the incoming MCP bearer token unchanged to a downstream API. Check origin and network policy on discovery, redirects, and caller-controlled fetches. Bind caller-scoped discovery and resource results to the correct identity and cache scope.
+- Pair an authorized control with a valid token for another audience, a caller with insufficient scope, and a cross-principal resource or handle request. Observe that denied paths make no downstream read, write, or queued work. Test discovery or an authorization challenge separately from protected runtime effects. Report the exact client, server revision, provider/fixture, and unexercised paths.
+
+[MCP security best practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices)

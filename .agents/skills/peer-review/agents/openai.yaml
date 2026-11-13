@@ -1,0 +1,4 @@
+interface:
+  display_name: "Peer Review"
+  short_description: "Review backend, frontend, Android, and test effectiveness"
+  default_prompt: "Use $peer-review to review the selected code and tests against requirements. Report prioritized findings, concrete evidence, coverage and whether the review was independent."

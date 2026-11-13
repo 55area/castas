@@ -1,0 +1,16 @@
+{
+  "title": "Notebook — synthetic concept",
+  "language": "en",
+  "tokens": "tokens.json",
+  "css": ["specimen.css"],
+  "widths": [360, 840],
+  "screens": [
+    {"id": "UI-S01", "title": "Notes", "purpose": "Find a saved note or start a draft.", "kind": "feature", "states": [
+      {"id": "ready", "label": "Saved content", "trigger": "Saved notes are available.", "html": "notes.html"},
+      {"id": "offline", "label": "Refresh failed", "trigger": "Refresh failed; existing notes remain available.", "html": "offline.html"}
+    ]},
+    {"id": "UI-S02", "title": "Draft", "purpose": "Edit a draft while retaining an explicit concept-only boundary.", "states": [
+      {"id": "editing", "label": "Editing", "trigger": "The user starts a new note.", "html": "draft.html"}
+    ]}
+  ]
+}

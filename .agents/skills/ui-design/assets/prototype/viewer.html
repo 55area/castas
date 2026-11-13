@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="@@language@@" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-@@viewerhash@@'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>@@title@@</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2f4f7;color:#17202a;font:1rem/1.5 system-ui,sans-serif}header,main{padding:1rem;max-width:100rem;margin:auto}header{border-bottom:1px solid #667085}h1{font-size:1.5rem}button,select,input{font:inherit}button,select{min-height:2.75rem}a{color:#124c96}label{display:inline-grid;gap:.25rem;margin:.25rem 1rem .25rem 0}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #124c96;outline-offset:3px}[hidden]{display:none!important}.gallery-frame{overflow:auto;border:1px solid #667085;padding:.5rem}.specimen{width:var(--preview-width,360px);min-height:24rem;container-type:inline-size}.gallery-notice{max-width:80ch}table{border-collapse:collapse;display:block;overflow:auto}th,td{text-align:left;padding:.5rem;border:1px solid #667085}details{margin-top:2rem}summary{cursor:pointer}dialog{max-width:min(90vw,40rem)}dialog::backdrop{background:#0009}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@@css@@
+</style>
+</head>
+<body>
+<header>
+<h1>@@title@@</h1>
+<p class="gallery-notice">Interactive design concept with synthetic content. Declared color-pair calculations, browser interactions, native behavior, and user validation are separate evidence.</p>
+<label for="gallery-route">Screen and state<select id="gallery-route">@@options@@</select></label>
+<label for="gallery-theme">Theme<select id="gallery-theme">@@themes@@</select></label>
+<label for="gallery-width">Content width (CSS px)<select id="gallery-width">@@widths@@</select></label>
+<p id="gallery-status" role="status"></p>
+</header>
+<main>
+@@states@@
+<details id="gallery-foundations"><summary>Declared foundations and checked pairs</summary>
+<h2>Semantic color roles</h2><table><thead><tr><th>Theme</th><th>Role</th><th>Value</th></tr></thead><tbody>@@roles@@</tbody></table>
+<h2>Typography</h2>@@typography@@
+<h2>Spacing and radius</h2>@@scales@@
+<h2>Calculated color pairs</h2><p>Only these declared combinations are checked. Four-decimal display is informational; pass decisions use the unrounded ratio. Fonts, focus, other combinations, overlays, images, and runtime accessibility need separate inspection.</p>
+<table><thead><tr><th>Theme</th><th>Pair</th><th>Use</th><th>Calculated ratio</th><th>Threshold</th></tr></thead><tbody>@@pairs@@</tbody></table>
+</details>
+</main>
+<script type="application/json" id="gallery-config">@@config@@</script>
+<script>
+(() => {
+  "use strict";
+  const cfg = JSON.parse(document.getElementById("gallery-config").textContent);
+  const route = document.getElementById("gallery-route");
+  const theme = document.getElementById("gallery-theme");
+  const width = document.getElementById("gallery-width");
+  const status = document.getElementById("gallery-status");
+  const states = Array.from(document.querySelectorAll(".gallery-state"));
+  function render() {
+    const [path, query = ""] = location.hash.slice(1).split("?");
+    const params = new URLSearchParams(query);
+    route.value = cfg.routes.includes(path) ? path : route.options[0].value;
+    theme.value = cfg.themes.includes(params.get("theme")) ? params.get("theme") : cfg.themes[0];
+    width.value = cfg.widths.includes(Number(params.get("width"))) ? params.get("width") : String(cfg.widths[0]);
+    document.documentElement.dataset.theme = theme.value;
+    document.documentElement.style.setProperty("--preview-width", width.value + "px");
+    let closedDialog = false;
+    document.querySelectorAll("dialog[open]").forEach(dialog => {
+      if (dialog.closest(".gallery-state").dataset.route !== route.value) {
+        dialog.close(); closedDialog = true;
+      }
+    });
+    states.forEach(state => { state.hidden = state.dataset.route !== route.value; });
+    if (closedDialog) route.focus();
+    status.textContent = `${route.value} · ${theme.value} · ${width.value} CSS px`;
+  }
+  function navigate(value) {
+    location.hash = value + "?" + new URLSearchParams({theme: theme.value, width: width.value});
+    render();
+  }
+  [route, theme, width].forEach(control => control.addEventListener("change", () => navigate(route.value)));
+  document.addEventListener("click", event => {
+    const anchor = event.target.closest("a[href^='#']");
+    if (anchor) {
+      event.preventDefault();
+      const destination = anchor.getAttribute("href").slice(1);
+      if (cfg.routes.includes(destination)) { navigate(destination); }
+      else {
+        const target = document.getElementById(destination);
+        if (target && !target.closest(".gallery-state").hidden) {
+          if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+          target.focus({preventScroll: true}); target.scrollIntoView({block: "nearest"});
+        }
+      }
+      return;
+    }
+    const button = event.target.closest("[data-goto],[data-state-to],[data-dialog-open],[data-dialog-close]");
+    if (!button) return;
+    if (button.dataset.goto) { event.preventDefault(); navigate(button.dataset.goto); }
+    if (button.dataset.stateTo) { event.preventDefault(); navigate(route.value.split("/")[0] + "/" + button.dataset.stateTo); }
+    if (button.dataset.dialogOpen) { document.getElementById(button.dataset.dialogOpen).showModal(); }
+    if (button.hasAttribute("data-dialog-close")) { const dialog = button.closest("dialog"); if (dialog) dialog.close(); }
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Tab") return;
+    const dialog = event.target.closest("dialog[open]");
+    if (!dialog) return;
+    const candidates = Array.from(dialog.querySelectorAll('a[href],button,input:not([type="hidden"]),select,textarea,[tabindex]'));
+    const focusable = candidates.filter(control => !control.matches(":disabled") && control.tabIndex >= 0 &&
+      !control.closest("[hidden],[inert]") && control.getClientRects().length > 0 &&
+      !["hidden", "collapse"].includes(getComputedStyle(control).visibility));
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    const current = document.activeElement;
+    if (!first) {
+      event.preventDefault(); dialog.setAttribute("tabindex", "-1"); dialog.focus();
+    } else if (!focusable.includes(current) || (event.shiftKey && current === first) || (!event.shiftKey && current === last)) {
+      event.preventDefault(); (event.shiftKey ? last : first).focus();
+    }
+  });
+  addEventListener("hashchange", render);
+  render();
+})();
+</script>
+</body>
+</html>

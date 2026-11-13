@@ -1,0 +1,233 @@
+name: PR Quiz
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  statuses: write
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: pr-quiz-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  quiz:
+    if: >-
+      github.event_name == 'pull_request_target' ||
+      (github.event.issue.pull_request && startsWith(github.event.comment.body, '/answer'))
+    runs-on: ubuntu-latest
+    steps:
+      # Official v9.0.0 release; review compatible updates before changing the pin.
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          script: |
+            const { createHash } = require('node:crypto');
+            // Authors are excluded unless explicitly enabled by repository policy.
+            const ALLOW_AUTHOR = false;
+
+            const CONTEXT = 'pr-quiz';
+            const BOT = 'github-actions[bot]';
+            const RESULT_MARKER = '<!-- pr-quiz-result -->';
+            const passMarker = (id, digest) => `<!-- pr-quiz-pass:${id}:${pr.head.sha}:${digest} -->`;
+
+            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request?.number ?? context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+            const fromComment = context.eventName === 'issue_comment';
+
+            async function mayAnswer(login) {
+              if (login === pr.user.login) return ALLOW_AUTHOR;
+              if (pr.requested_reviewers.some(user => user.login === login)) return true;
+              // GitHub removes an individual request after the reviewer submits a review.
+              const reviews = await github.paginate(github.rest.pulls.listReviews, {
+                owner, repo, pull_number: prNumber, per_page: 100,
+              });
+              return reviews.some(review => review.user?.login === login);
+            }
+
+            const setStatus = (state, description) =>
+              github.rest.repos.createCommitStatus({
+                owner, repo, sha: pr.head.sha, state, context: CONTEXT,
+                description: description.slice(0, 140),
+              });
+
+            function quizBlock(body) {
+              const text = (body || '').replace(/\r\n/g, '\n');
+              if ((text.match(/<!-- pr-quiz:start -->/g) ?? []).length !== 1 ||
+                  (text.match(/<!-- pr-quiz:end -->/g) ?? []).length !== 1) return null;
+              return text.match(/<!-- pr-quiz:start -->([\s\S]*?)<!-- pr-quiz:end -->/)?.[1] ?? null;
+            }
+            function quizKey(body) {
+              const keys = [...(quizBlock(body) ?? '').matchAll(/<!-- pr-quiz-key:([A-Za-z0-9+/=\s]+?) -->/g)];
+              return keys.length === 1 ? keys[0][1].replace(/\s/g, '') : null;
+            }
+            function quizDigest(body) {
+              const block = quizBlock(body);
+              if (block === null) return null;
+              // Answer ticks are reviewer input. Keep question, option and key text in the identity.
+              const content = block.replace(/^([ \t]*[-*] )\[[ xX]\]( \*\*[A-F]\)\*\*)/gm, '$1[ ]$2');
+              return createHash('sha256').update(content).digest('hex');
+            }
+            // Explanations come from editable PR metadata. Render literal text;
+            // never reflect control markers, Markdown links or mentions as syntax.
+            const literalText = (value) => String(value).replace(/\s+/g, ' ').trim()
+              .replace(/[^a-zA-Z0-9 ]/gu, (char) => `&#${char.codePointAt(0)};`);
+
+            function parseOptions(body) {
+              const options = new Map();
+              let current = null;
+              for (const line of (quizBlock(body) ?? '').split('\n')) {
+                const question = line.match(/^\*\*(\d+)\.\s/);
+                if (question) {
+                  if (options.has(question[1])) return null;
+                  current = new Map();
+                  options.set(question[1], current);
+                  continue;
+                }
+                const option = line.match(/^[ \t]*[-*] \[([ xX])\] \*\*([A-F])\)\*\*/);
+                if (option) {
+                  if (!current || current.has(option[2])) return null;
+                  current.set(option[2], option[1] !== ' ');
+                }
+              }
+              return options;
+            }
+            const ticked = (options) => [...options].filter(([, checked]) => checked).map(([letter]) => letter);
+
+            const body = pr.body;
+            const key = quizKey(body);
+            if (!key) {
+              if (!fromComment) await setStatus('pending', 'No quiz found in the PR description');
+              return;
+            }
+            let quiz;
+            try {
+              quiz = JSON.parse(Buffer.from(key, 'base64').toString('utf8'));
+              const entries = Object.entries(quiz.answers ?? {});
+              if (!/^[a-f0-9]{12}$/.test(quiz.id) || entries.length < 1 || entries.length > 10 ||
+                  entries.some(([n, answer], i) => n !== String(i + 1) || !/^[A-F]$/.test(answer))) {
+                throw new Error('Invalid quiz key');
+              }
+            } catch {
+              if (!fromComment) await setStatus('pending', 'Invalid quiz metadata; regenerate the quiz');
+              return;
+            }
+            const questions = Object.keys(quiz.answers);
+            const options = parseOptions(body);
+            if (options?.size !== questions.length || questions.some((n) =>
+              (options.get(n)?.size ?? 0) < 2 || !options.get(n).has(quiz.answers[n]))) {
+              if (!fromComment) await setStatus('pending', 'Quiz options do not match the key; regenerate the quiz');
+              return;
+            }
+            const digest = quizDigest(body);
+            const token = createHash('sha256').update(`${prNumber}:${pr.head.sha}:${digest}`).digest('hex').slice(0, 16);
+            const command = `/answer ${token} ${questions.map((n) => `${n}A`).join(' ')}`;
+            const answerText = fromComment
+              ? context.payload.comment.body.split('\n')[0].match(/^\/answer[ \t]+([a-f0-9]{16})[ \t]+(.*)$/)
+              : null;
+            // A comment event has no reliable PR-head snapshot. Stale or bare commands
+            // must leave the current result alone, even if their answer letters match.
+            if (fromComment &&
+                (answerText?.[1] !== token || !await mayAnswer(context.payload.comment.user.login))) return;
+
+            // Read only GitHub metadata. Never check out or execute PR-head code here.
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const botComments = comments.filter((c) => c.user.login === BOT);
+
+            // A pass applies only to this quiz content and exact PR head commit.
+            if (botComments.some((c) => c.body.startsWith(`${RESULT_MARKER}\n${passMarker(quiz.id, digest)}\n`))) {
+              await setStatus('success', 'Quiz passed');
+              return;
+            }
+
+            // One result comment, updated in place, so ticking boxes doesn't spam the PR.
+            const resultComment = botComments.find((c) => c.body.startsWith(`${RESULT_MARKER}\n`));
+            const report = (text) => {
+              const commentBody = `${RESULT_MARKER}\n${text}`;
+              return resultComment
+                ? github.rest.issues.updateComment({ owner, repo, comment_id: resultComment.id, body: commentBody })
+                : github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body: commentBody });
+            };
+
+            let who;
+            let given;
+
+            if (fromComment) {
+              who = context.payload.comment.user.login;
+              given = {};
+              for (const [, n, letter] of answerText[2].matchAll(/(\d+)\s*[.:)\-]?\s*([a-z])\b/gi)) {
+                if (given[n] || !options.get(n)?.has(letter.toUpperCase())) {
+                  await setStatus('pending', `Use one listed option per question. Example: ${command}`);
+                  return;
+                }
+                given[n] = letter.toUpperCase();
+              }
+              const missing = questions.filter((n) => !given[n]);
+              if (missing.length) {
+                await report(
+                  `@${who} your answer is missing question ${missing.join(', ')}. ` +
+                  `Tick the boxes in the description or use \`${command}\` with your answers.`,
+                );
+                return;
+              }
+            } else {
+              const ticks = Object.fromEntries(questions.map((n) => [n, ticked(options.get(n))]));
+              const answered = questions.filter((n) => ticks[n]?.length === 1);
+              const multiple = questions.filter((n) => (ticks[n]?.length ?? 0) > 1);
+              const progress = multiple.length
+                ? `Tick only one answer for question ${multiple.join(', ')}`
+                : `${answered.length} of ${questions.length} questions answered`;
+
+              // Only grade when checkboxes of the same quiz changed. Other edits, a newly
+              // published quiz and pushes just refresh the pending status.
+              const previousBody = context.payload.changes?.body?.from;
+              const previousOptions = previousBody !== undefined && quizDigest(previousBody) === digest
+                ? parseOptions(previousBody)
+                : null;
+              const ticksChanged =
+                context.payload.action === 'edited' &&
+                context.payload.pull_request?.body === body &&
+                context.payload.pull_request?.head?.sha === pr.head.sha &&
+                previousOptions &&
+                questions.some((n) => ticked(previousOptions.get(n)).join() !== ticks[n].join());
+
+              if (!ticksChanged || answered.length < questions.length) {
+                await setStatus('pending', `${progress}. Example: ${command}`);
+                return;
+              }
+              who = context.payload.sender.login;
+              given = Object.fromEntries(questions.map((n) => [n, ticks[n][0]]));
+            }
+
+            if (!fromComment && !await mayAnswer(who)) {
+              await setStatus('pending', `Waiting for a reviewer. Example: ${command}`);
+              await report(`@${who} only requested reviewers${ALLOW_AUTHOR ? ' or the PR author' : ''} can answer this quiz. Your answers were not graded.`);
+              return;
+            }
+
+            const wrong = questions.filter((n) => given[n] !== quiz.answers[n]);
+            if (wrong.length === 0) {
+              const { data: latest } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+              if (latest.head.sha !== pr.head.sha || quizDigest(latest.body) !== digest) return;
+              await report(`${passMarker(quiz.id, digest)}\n✅ @${who} passed the quiz (${questions.length}/${questions.length}).`);
+              await setStatus('success', 'Quiz passed');
+              return;
+            }
+
+            await setStatus('failure', `${wrong.length} of ${questions.length} answers wrong. Example: ${command}`);
+            const explanations = wrong
+              .map((n) => `- **Question ${n}:** ${literalText(quiz.explanations?.[n] ?? 'No explanation available.')}`)
+              .join('\n');
+            await report(
+              `❌ @${who} got ${questions.length - wrong.length}/${questions.length} right. ` +
+              `Wrong: question ${wrong.join(', ')}.\n\n` +
+              `<details><summary>Explanations (contain the answers)</summary>\n\n${explanations}\n\n</details>\n\n` +
+              `Re-read the relevant parts of the diff, then change your ticked answers in the description.`,
+            );

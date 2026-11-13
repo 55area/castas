@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cybersecurity"
+  short_description: "Assess software, DevOps, and IT security risks"
+  default_prompt: "Use $cybersec to assess this project's security risks and controls, report evidence and coverage gaps, and recommend prioritized mitigations."

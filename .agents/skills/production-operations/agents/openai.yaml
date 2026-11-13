@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production Operations"
+  short_description: "Deploy and operate cloud and VPS backends"
+  default_prompt: "Use $production-operations to prepare a staging deployment and identify the access and verification it needs."

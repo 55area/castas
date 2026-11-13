@@ -1,0 +1,200 @@
+{
+  "app": {
+    "title": "Castas",
+    "subtitle": "Teste de Polarização Afetiva",
+    "favicon": "/favicon.ico"
+  },
+  "common": {
+    "back": "Página Inicial",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso"
+  },
+  "home": {
+    "language": "Português",
+    "description": "Quando a polarização divide a sociedade em grupos que passam a se ver como moralmente incompatíveis, o convívio e a mobilidade entre esses grupos diminuem. Com o tempo, surgem barreiras sociais rígidas, formando \"castas\" informais que aprofundam a desigualdade e a segregação. As redes sociais com algoritmos de bolhas aceleram esse processo, inviabilizando a coexistência democrática.",
+    "startTest": "Iniciar Teste",
+    "viewResult": "Ver Resultado",
+    "sharePrompt": "Após concluir o teste, compartilhe seu resultado em suas redes sociais para convidar seus amigos e também descobrir quem pensa como você.",
+    "about": "Sobre",
+    "termsOfUse": "Termos de Uso",
+    "privacyPolicy": "Política de Privacidade",
+    "copyrightBefore": "Copyleft © 2026",
+    "copyrightMiddle": "🇧🇷 Publicado sob a",
+    "copyrightLicense": "licença GPL v3.0",
+    "madeInBefore": "Fabricado no Brasil, no Mundo de",
+    "madeInPlace": "Oz (SP)",
+    "madeInAfter": ", com 🌭 🍕 e IA 🤖."
+  },
+  "politicalFanatic": {
+    "title": "O Fanático Político",
+    "content": [
+      "O pior fanático é o fanático político.",
+      "Ele não lê, não assiste, nem se interessa por nada fora de sua bolha partidária.",
+      "Ele não hesita em compartilhar notícias falsas, conteúdos ofensivos e ameaças para atacar seus inimigos e promover o caos na sociedade, porque ignora como as democracias morrem.",
+      "O fanático político é tão hediondo que se orgulha de usar a violência em qualquer ocasião para calar opositores.",
+      "Não sabe o imbecil que da sua militância do ódio nasce o fascismo, a opressiva ditadura e o pior de todos os autocratas, que é o tirano genocida, desumano, demagogo e lacaio dos políticos neoliberais e reacionários."
+    ],
+    "adaptation": "— Adaptação do texto \"O Analfabeto Político\", de Bertolt Brecht."
+  },
+  "test": {
+    "dimensionOf": "Dimensão {{current}} de {{total}}",
+    "questionOf": "Questão {{current}} de {{total}}",
+    "overallProgress": "Progresso geral",
+    "overallProgressValue": "{{current}} / {{total}}",
+    "options": {
+      "stronglyAgree": "Concordo plenamente!",
+      "somewhatAgree": "Concordo, até certo ponto.",
+      "somewhatDisagree": "Mais discordo do que concordo.",
+      "stronglyDisagree": "Discordo totalmente!"
+    }
+  },
+  "dimensions": {
+    "a": "Hostilidade Emocional",
+    "b": "Desvalorização Moral",
+    "c": "Distanciamento Social",
+    "d": "Deslegitimação Democrática",
+    "e": "Segregação Identitária"
+  },
+  "result": {
+    "title": "Seu Resultado",
+    "shareTitle": "Compartilhe seu resultado nas redes sociais:",
+    "changeEmoji": "Alterar Emoji",
+    "close": "Fechar",
+    "chooseEmoji": "Escolha seu emoji positivo",
+    "share": "Compartilhar",
+    "copied": "Copiado!",
+    "copiedTitle": "CASTAS",
+    "copiedSubtitle": "Teste de Polarização Afetiva",
+    "copiedLink": "Faça o teste:",
+    "copiedUrl": "https://www.castas.top",
+    "searchEmoji": "Buscar emoji",
+    "noEmoji": "Nenhum emoji encontrado."
+  },
+  "about": {
+    "title": "Bem-vindo ao Castas.top!",
+    "intro": "A proposta deste site é oferecer uma ferramenta de diagnóstico sobre um dos fenômenos mais desafiadores das democracias modernas: a polarização afetiva. Mais do que uma simples divergência de opiniões, esse processo ocorre quando a política deixa de ser um debate de ideias e passa a ser uma questão de identidade e aversão emocional.",
+    "body": "À medida que as diferenças políticas se intensificam, cresce também a rejeição emocional, moral e social entre grupos, enfraquecendo a confiança e a convivência. Esse processo pode levar à fragmentação da sociedade em blocos isolados, semelhantes a castas, nos quais o diálogo se reduz e a legitimidade do outro é negada.",
+    "closing": "Em um cenário de crescente distanciamento social e tensões ideológicas, discutir a polarização afetiva é fundamental para identificar como as emoções — e não apenas as ideias — influenciam nossos julgamentos, sendo o primeiro passo para promover um diálogo mais saudável e reduzir a hostilidade entre diferentes grupos na sociedade.",
+    "howItWorks": "Como Funciona?",
+    "howItWorksIntro": "A operação do site é bastante simples e intuitiva. Ao abrir a página principal você já poderá iniciar o teste de imediato, sem necessidade de efetuar login ou qualquer outra configuração. Para responder às questões, você deverá selecionar aquela opção que melhor representa seus valores pessoais e suas escolhas de vida. Responda honestamente!",
+    "dimensionsIntro": "A polarização afetiva pode ser medida em 5 dimensões, cada uma mensurável através de 8 questões:",
+    "dimensions": {
+      "a": "mede a irritação e a reação visceral negativa ao ouvir o grupo oposto;",
+      "b": "avalia a tendência de enxergar o outro como ignorante, mal-intencionado ou desonesto;",
+      "c": "verifica o desconforto em conviver ou estabelecer laços pessoais (como amizade ou família) com quem pensa diferente;",
+      "d": "analisa a percepção do outro grupo como uma ameaça existencial ou alguém que deveria ter menos direitos políticos;",
+      "e": "observa o quanto a pessoa vive em uma \"bolha\" de consumo de mídia e círculos sociais exclusivos de seu próprio grupo."
+    },
+    "scoringIntro": "O cálculo do resultado utiliza uma Escala Likert de 4 pontos para medir a intensidade de cada resposta:",
+    "scoring": {
+      "stronglyAgree": "Concordo plenamente!",
+      "somewhatAgree": "Concordo, até certo ponto.",
+      "somewhatDisagree": "Mais discordo do que concordo.",
+      "stronglyDisagree": "Discordo totalmente!"
+    },
+    "resultExample": "Ao final do teste será apresentado o seu resultado, com pontuações em cada uma das dimensões. Caso queira, você poderá compartilhar o resultado em suas redes sociais.",
+    "bannerDescription": "Polarização política no Brasil"
+  },
+  "termsOfUse": {
+    "title": "Termos de Uso",
+    "intro": "Ao usar o aplicativo Castas para Android, você concorda com estes termos.",
+    "sections": {
+      "purpose": {
+        "title": "Finalidade do aplicativo",
+        "content": "O Castas é um aplicativo que oferece um teste de polarização afetiva com 40 questões, distribuídas em cinco dimensões de oito questões."
+      },
+      "nature": {
+        "title": "Natureza Informativa",
+        "content": "O conteúdo e o resultado do aplicativo têm caráter informativo, pedagógico ou de entretenimento. O resultado não é um diagnóstico psicológico nem uma consultoria política."
+      },
+      "operation": {
+        "title": "Funcionamento do Teste",
+        "items": [
+          "Participação: Para visualizar o resultado final, o usuário deve completar todas as 40 perguntas.",
+          "Processamento: O cálculo das dimensões é feito de forma automatizada com base nas respostas fornecidas no momento do teste.",
+          "Armazenamento: Conforme nossa Política de Privacidade, os dados das respostas não são vinculados à sua identidade e o resultado fica salvo apenas no seu próprio dispositivo Android."
+        ]
+      },
+      "sharing": {
+        "title": "Compartilhamento em Redes Sociais",
+        "content": "Você pode copiar o resultado e colá-lo em outro aplicativo para compartilhá-lo.",
+        "items": [
+          "Ao utilizar esta função, você reconhece que o compartilhamento é um ato voluntário e de sua inteira responsabilidade.",
+          "Não nos responsabilizamos por comentários, interpretações ou reações de terceiros sobre os dados que você decidiu tornar públicos."
+        ]
+      },
+      "availability": {
+        "title": "Disponibilidade do serviço",
+        "content": "O aplicativo pode ser atualizado ou descontinuado. Não há garantia de funcionamento contínuo ou livre de erros."
+      },
+      "privacy": {
+        "title": "Privacidade e Dados",
+        "intro": "Para manter a simplicidade e a sua privacidade:",
+        "items": [
+          "Anonimato: Não solicitamos nome, e-mail ou dados de identificação pessoal para a realização do teste.",
+          "Armazenamento: Os dados das suas respostas são processados apenas para gerar o resultado da sessão atual. Não coletamos nem vendemos informações para terceiros."
+        ]
+      },
+      "ip": {
+        "title": "Propriedade Intelectual",
+        "content": "O código do Castas Android é disponibilizado sob a GPL v3.0. Você pode compartilhar o seu resultado."
+      },
+      "liability": {
+        "title": "Limitação de Responsabilidade",
+        "content": "Não nos responsabilizamos pelo uso que terceiros façam do resultado que você decidir publicar em suas redes sociais, nem por interpretações equivocadas dos dados fornecidos pelo teste."
+      },
+      "changes": {
+        "title": "Alterações nos termos",
+        "content": "Estes termos podem mudar em versões futuras. Consulte a versão disponível no aplicativo."
+      },
+      "acceptance": {
+        "title": "Aceitação dos termos",
+        "content": "Ao usar o Castas, você concorda com estes termos."
+      }
+    },
+    "lastUpdated": "Última atualização: 8 de novembro de 2026."
+  },
+  "privacyPolicy": {
+    "title": "Política de Privacidade e Segurança",
+    "sections": {
+      "acceptance": {
+        "title": "Aceitação do Acordo",
+        "content": "Como o Castas para Android trata os dados do teste."
+      },
+      "about": {
+        "title": "Sobre o Teste de Polarização Afetiva",
+        "content": "O nosso teste é composto por 40 questões que avaliam 5 dimensões específicas da polarização afetiva (8 questões para cada dimensão). O objetivo é estritamente informativo e de entretenimento."
+      },
+      "data": {
+        "title": "Dados e armazenamento local",
+        "items": [
+          "O aplicativo funciona offline e não coleta dados de identificação, nem usa publicidade ou rastreadores.",
+          "Dados Pessoais: Nenhuma informação pessoal (como nome, e-mail ou CPF) é solicitada para realizar o teste.",
+          "Armazenamento local: Apenas o resultado concluído e sua preferência de idioma ficam salvos no seu dispositivo Android para que você possa consultar o resultado depois.",
+          "As respostas são usadas em memória para calcular o resultado e não são gravadas individualmente. O app não envia os resultados a servidores."
+        ]
+      },
+      "sharing": {
+        "title": "Compartilhamento do Resultado",
+        "content": "Ao tocar em Compartilhar, o app copia o resultado para a área de transferência do Android. Se você colar em outro aplicativo, o conteúdo ficará sujeito à política desse aplicativo."
+      },
+      "clearData": {
+        "title": "Como Limpar seus Dados",
+        "content": "Você pode limpar os dados do Castas nas configurações do Android. Se já tiver copiado ou compartilhado o resultado, remova a cópia separadamente."
+      },
+      "spam": {
+        "title": "Política Anti-Spam",
+        "content": "O aplicativo não pede contatos nem envia e-mails, mensagens ou notificações."
+      }
+    },
+    "lastUpdated": "Última atualização: 8 de novembro de 2026."
+  },
+  "storage": {
+    "readError": "Não foi possível ler os dados locais.",
+    "writeError": "Não foi possível salvar o resultado. Tente novamente.",
+    "languageError": "Não foi possível salvar o idioma. Selecione-o novamente.",
+    "saving": "Salvando resultado…",
+    "retry": "Tentar novamente"
+  }
+}

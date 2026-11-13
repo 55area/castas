@@ -1,0 +1,10 @@
+# Web development outputs
+node_modules/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Local web environment overrides
+.env.local
+.env.*.local

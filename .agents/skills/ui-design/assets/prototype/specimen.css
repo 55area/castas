@@ -1,0 +1,8 @@
+.specimen{padding:var(--space-large);background:var(--color-surface);color:var(--color-text);font:var(--type-body)}
+.specimen button,.specimen input,.specimen textarea{border:1px solid var(--color-outline);border-radius:var(--radius-control);padding:var(--space-small);max-width:100%;color:inherit;background:inherit}
+.specimen button{cursor:pointer;min-height:48px}
+.specimen .primary{background:var(--color-accent);color:var(--color-on-accent)}
+.specimen label{display:grid;margin:var(--space-medium) 0}
+.specimen ul{padding-inline-start:var(--space-large)}
+.specimen .notice{border:1px solid var(--color-outline);padding:var(--space-medium)}
+.specimen textarea{width:100%;min-height:10rem}

@@ -1,0 +1,7 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+
+# Temporary files from document editors
+~$*
+*.tmp

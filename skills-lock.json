@@ -1,0 +1,137 @@
+{
+  "version": 2,
+  "skills": {
+    "agent-instructions": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "agent-instructions/SKILL.md",
+      "computedHash": "8a376f402df281c0a2370f65a43f550ad5fa1c090ffd80ccbbc9d01ba30964c7"
+    },
+    "android-background": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-background/SKILL.md",
+      "computedHash": "2b48721bd697d4e0cb21d82074d56e37954fee4ea3ee8f953dc744997ba65382"
+    },
+    "android-data-layer": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-data-layer/SKILL.md",
+      "computedHash": "99e71954817fa80cf6e4eb2773483c2388b7a186ef31295db15bb814c7ae398c"
+    },
+    "android-di-koin": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-di-koin/SKILL.md",
+      "computedHash": "28acedb82ae60f4e9b68e2891175984bf83106366136d590b519a887ff7bcf87"
+    },
+    "android-error-handling": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-error-handling/SKILL.md",
+      "computedHash": "c62143bff7eab2a5e1fbdc37771a234fdbb966de7b62c972f6e3b9e1f240e1a9"
+    },
+    "android-integration-testing": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-integration-testing/SKILL.md",
+      "computedHash": "1f31ac4760f5587ce6f9a58f7e111bef224f66a5bb4332996302757bd3b19384"
+    },
+    "android-module-structure": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-module-structure/SKILL.md",
+      "computedHash": "a73bd8e1ed37d8fe6c25995635f8d55a80357952915df69e51b041e35de18609"
+    },
+    "android-ui-testing": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-ui-testing/SKILL.md",
+      "computedHash": "8e179d210f92002608baf98f8cdd746d53dee59b3696b149a580b86c8883a5c2"
+    },
+    "android-unit-testing": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "android-unit-testing/SKILL.md",
+      "computedHash": "f36f8a8cb44b4805b966ddcee2bfd8696f4685410c5888b9dd10c8872b5cb288"
+    },
+    "behavior-testing": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "behavior-testing/SKILL.md",
+      "computedHash": "f33afcd981b8ed00533c9c6964c3a220587722d086371f109064b1ba99b54379"
+    },
+    "cybersec": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "cybersec/SKILL.md",
+      "computedHash": "d403c117aba6e925d29825094c27ce7ed515f89e56a656d1bf26cf866b913d67"
+    },
+    "diagnose-defect": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "diagnose-defect/SKILL.md",
+      "computedHash": "eb37670835d5ea93cbfeb2d79d6436e9ef811301a145c874b60f55b4eeae6f8b"
+    },
+    "git-delivery": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "git-delivery/SKILL.md",
+      "computedHash": "0feac044b6101755db49616739bfa82c931778f4bf8319287f7d3852d520d1e4"
+    },
+    "http-api": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "http-api/SKILL.md",
+      "computedHash": "49f5ca6ae948636a3331bb5e463ebe255a411ff18ce015930eee40a1dddca37b"
+    },
+    "mcp-server": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "mcp-server/SKILL.md",
+      "computedHash": "4ed5c50c8cd4f4e3a0eabe7788af67c50f07bb98d5ca1e62c18acb7819d128e4"
+    },
+    "peer-review": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "peer-review/SKILL.md",
+      "computedHash": "5a070fc464bd5258353f841169a48f5f7d7139eeec782c01906d0883b4a050c9"
+    },
+    "penta-pro": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "penta-pro/SKILL.md",
+      "computedHash": "a6a17702cb474e3f30b642e9e0d76cd642d80adfc7ac9685fad66f4952e01bee"
+    },
+    "pr-quiz": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "pr-quiz/SKILL.md",
+      "computedHash": "910ea0a711f990644dbc5d7caf5a0b95d60dc3c2236179179a2b35bae688cd41"
+    },
+    "production-operations": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "production-operations/SKILL.md",
+      "computedHash": "700c30ba62bf028df39d50489fca8d4a73777698c6771b4e2779c2628c3826a2"
+    },
+    "software-delivery": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "software-delivery/SKILL.md",
+      "computedHash": "25ce8667a02d317e750c17972e5b1a50735b57491335281411ef1ff667c6bd75"
+    },
+    "technical-research": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "technical-research/SKILL.md",
+      "computedHash": "e4bd9d0da18cb636aed76c75d5e9419d1f3823f7426da8bccaa24ebb956fb9b5"
+    },
+    "ui-design": {
+      "source": "teknolista/skills",
+      "sourceType": "github",
+      "skillPath": "ui-design/SKILL.md",
+      "computedHash": "3076532a5c07b1b06eba41be9a4ba958266bb9e96b34eee90c2f96461a168578"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "app": {
+    "title": "Castas",
+    "subtitle": "Affective Polarization Test",
+    "favicon": "/favicon.ico"
+  },
+  "common": {
+    "back": "Home Page",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "home": {
+    "language": "English",
+    "description": "When polarization divides society into groups that begin to see each other as morally incompatible, coexistence and mobility between these groups diminish. Over time, rigid social barriers emerge, forming informal \"castes\" that deepen inequality and segregation. Social media with bubble algorithms accelerates this process, making democratic coexistence unviable.",
+    "startTest": "Start Test",
+    "viewResult": "View Result",
+    "sharePrompt": "After completing the test, share your result on your social networks to invite your friends and discover who thinks like you.",
+    "about": "About",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "copyrightBefore": "Copyleft © 2026",
+    "copyrightMiddle": "🇧🇷 Published under the",
+    "copyrightLicense": "GPL v3.0 license",
+    "madeInBefore": "Made in Brazil, in the Land of",
+    "madeInPlace": "Oz (SP)",
+    "madeInAfter": ", with 🌭 🍕 and AI 🤖."
+  },
+  "politicalFanatic": {
+    "title": "The Political Fanatic",
+    "content": [
+      "The worst fanatic is the political fanatic.",
+      "He doesn't read, doesn't watch, and isn't interested in anything outside his partisan bubble.",
+      "He doesn't hesitate to share fake news, offensive content, and threats to attack his enemies and promote chaos in society, because he ignores how democracies die.",
+      "The political fanatic is so hideous that he prides himself on using violence on any occasion to silence opponents.",
+      "The imbecil doesn't know that from his hate militancy fascism is born, the oppressive dictatorship and the worst of all autocrats, which is the genocidal, inhumane, demagogic tyrant and pawn of neoliberal and reactionary politicians."
+    ],
+    "adaptation": "— Adaptation of the text \"The Political Illiterate\", by Bertolt Brecht."
+  },
+  "test": {
+    "dimensionOf": "Dimension {{current}} of {{total}}",
+    "questionOf": "Question {{current}} of {{total}}",
+    "overallProgress": "Overall progress",
+    "overallProgressValue": "{{current}} / {{total}}",
+    "options": {
+      "stronglyAgree": "Strongly agree!",
+      "somewhatAgree": "Somewhat agree.",
+      "somewhatDisagree": "Somewhat disagree.",
+      "stronglyDisagree": "Strongly disagree!"
+    }
+  },
+  "dimensions": {
+    "a": "Emotional Hostility",
+    "b": "Moral Devaluation",
+    "c": "Social Distance",
+    "d": "Democratic Delegitimization",
+    "e": "Identity Segregation"
+  },
+  "result": {
+    "title": "Your Result",
+    "shareTitle": "Share your result on social media:",
+    "changeEmoji": "Change Emoji",
+    "close": "Close",
+    "chooseEmoji": "Choose your positive emoji",
+    "share": "Share",
+    "copied": "Copied!",
+    "copiedTitle": "CASTAS",
+    "copiedSubtitle": "Affective Polarization Test",
+    "copiedLink": "Take the test:",
+    "copiedUrl": "https://www.castas.top",
+    "searchEmoji": "Search emoji",
+    "noEmoji": "No emoji found."
+  },
+  "about": {
+    "title": "Welcome to Castas.top!",
+    "intro": "The purpose of this site is to offer a diagnostic tool for one of the most challenging phenomena in modern democracies: affective polarization. More than a simple divergence of opinions, this process occurs when politics ceases to be a debate of ideas and becomes a matter of identity and emotional aversion.",
+    "body": "As political differences intensify, emotional, moral, and social rejection between groups also grows, weakening trust and coexistence. This process can lead to the fragmentation of society into isolated blocks, similar to castes, in which dialogue is reduced and the legitimacy of the other is denied.",
+    "closing": "In a scenario of growing social distancing and ideological tensions, discussing affective polarization is fundamental to identify how emotions — and not just ideas — influence our judgments, being the first step to promote healthier dialogue and reduce hostility between different groups in society.",
+    "howItWorks": "How Does It Work?",
+    "howItWorksIntro": "The site's operation is quite simple and intuitive. When opening the main page, you can start the test immediately, without needing to log in or perform any other configuration. To answer the questions, you must select the option that best represents your personal values and life choices. Answer honestly!",
+    "dimensionsIntro": "Affective polarization can be measured in 5 dimensions, each measurable through 8 questions:",
+    "dimensions": {
+      "a": "measures irritation and negative visceral reaction when hearing the opposing group;",
+      "b": "evaluates the tendency to see the other as ignorant, malicious, or dishonest;",
+      "c": "verifies the discomfort in living or establishing personal bonds (such as friendship or family) with those who think differently;",
+      "d": "analyzes the perception of the other group as an existential threat or someone who should have fewer political rights;",
+      "e": "observes how much a person lives in a \"bubble\" of media consumption and exclusive social circles of their own group."
+    },
+    "scoringIntro": "The result calculation uses a 4-point Likert Scale to measure the intensity of each response:",
+    "scoring": {
+      "stronglyAgree": "Strongly agree!",
+      "somewhatAgree": "Somewhat agree.",
+      "somewhatDisagree": "Somewhat disagree.",
+      "stronglyDisagree": "Strongly disagree!"
+    },
+    "resultExample": "At the end of the test, your result will be presented, with scores in each of the dimensions. If you want, you can share the result on your social networks.",
+    "bannerDescription": "Political polarization in Brazil"
+  },
+  "termsOfUse": {
+    "title": "Terms of Use",
+    "intro": "By using Castas for Android, you agree to these terms.",
+    "sections": {
+      "purpose": {
+        "title": "Purpose of the app",
+        "content": "Castas provides an affective polarization test with 40 questions across five dimensions of eight questions each."
+      },
+      "nature": {
+        "title": "Informative Nature",
+        "content": "The app and its results are for information, education or entertainment. Results are neither a psychological diagnosis nor professional political advice."
+      },
+      "operation": {
+        "title": "Test Operation",
+        "items": [
+          "Participation: To view the final result, the user must complete all 40 questions.",
+          "Processing: The calculation of dimensions is done automatically based on the answers provided at the time of the test.",
+          "Storage: According to our Privacy Policy, the response data is not linked to your identity and the result is saved only in your own Android device."
+        ]
+      },
+      "sharing": {
+        "title": "Sharing on Social Media",
+        "content": "You can copy your result and paste it into another app to share it.",
+        "items": [
+          "By using this feature, you acknowledge that sharing is a voluntary act and your sole responsibility.",
+          "We are not responsible for comments, interpretations, or reactions from third parties about the data you decided to make public."
+        ]
+      },
+      "availability": {
+        "title": "Service Availability",
+        "content": "The app may be updated or discontinued. Continuous or error-free operation is not guaranteed."
+      },
+      "privacy": {
+        "title": "Privacy and Data",
+        "intro": "To maintain simplicity and your privacy:",
+        "items": [
+          "Anonymity: We do not request name, email, or personal identification data to take the test.",
+          "Storage: Your response data is processed only to generate the result of the current session. We do not collect or sell information to third parties."
+        ]
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "The Castas Android source code is provided under GPL v3.0. You may share your result."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "We are not responsible for the use that third parties make of the result you decide to publish on your social networks, nor for misinterpretations of the data provided by the test."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "These terms may change in future versions. Refer to the version in the app."
+      },
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using Castas, you agree to these terms."
+      }
+    },
+    "lastUpdated": "Last updated: November 8, 2026."
+  },
+  "privacyPolicy": {
+    "title": "Privacy and Security Policy",
+    "sections": {
+      "acceptance": {
+        "title": "Agreement Acceptance",
+        "content": "How Castas for Android handles test data."
+      },
+      "about": {
+        "title": "About the Affective Polarization Test",
+        "content": "Our test consists of 40 questions that evaluate 5 specific dimensions of affective polarization (8 questions for each dimension). The objective is strictly informative and entertainment."
+      },
+      "data": {
+        "title": "Data and local storage",
+        "items": [
+          "The app works offline and does not collect identifying data or use ads or trackers.",
+          "Personal Data: No personal information (such as name, email, or ID) is required to take the test.",
+          "Local storage: Only your completed result and language preference are saved on your Android device so you can view the result later.",
+          "Answers are used in memory to calculate the result. The app saves no individual answers and does not send results to a server."
+        ]
+      },
+      "sharing": {
+        "title": "Sharing Results",
+        "content": "When you tap Share, the app copies the result to the Android clipboard. Pasting it in another app is subject to that app’s privacy policy."
+      },
+      "clearData": {
+        "title": "How to Clear Your Data",
+        "content": "You can clear Castas data in Android settings. If you copied or shared a result, remove that copy separately."
+      },
+      "spam": {
+        "title": "Anti-Spam Policy",
+        "content": "The app does not request contacts or send emails, messages or notifications."
+      }
+    },
+    "lastUpdated": "Last updated: November 8, 2026."
+  },
+  "storage": {
+    "readError": "Could not read local data.",
+    "writeError": "Could not save your result. Try again.",
+    "languageError": "Could not save the language. Select it again.",
+    "saving": "Saving result…",
+    "retry": "Retry"
+  }
+}

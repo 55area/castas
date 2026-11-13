@@ -1,0 +1,19 @@
+# Choose a deployment model
+
+Start with the actual process model. Check runtime/OS/CPU, packaging, ingress and protocols, timeouts, signals, persistent state, data locality, network reachability, identity, concurrency, throughput and duty cycle. Compare only plausible options against operator skill, availability/recovery goals, portability and the cost of peak load and idle capacity. Verify current region, account eligibility, quotas, pricing, availability and feature status from the provider before selection or execution. Treat a budget alert as a notification unless enforcement is verified.
+
+| Shape | Fit and test |
+| --- | --- |
+| HTTP API, SSR, webhook or short event handler | Managed container service, web PaaS, functions, or edge runtime according to compatibility. Probe cold starts, ingress timeout/body limits, downstream connection budgets, webhook signature handling and duplicate delivery. |
+| RPC, streams, WebSockets, TCP/UDP | Verify end-to-end protocol support from client through every edge, load balancer and runtime. Test idle/request timeouts, drain, affinity or reconnect, and sustained concurrent connections. Use dedicated ingress/compute where managed HTTP contracts cannot carry the protocol. |
+| Queue consumer, event-driven worker or scheduled task | Use a service, worker pool, event-triggered runtime or bounded job matching the execution model. Test acknowledgment timing, redelivery, backpressure, concurrency, dead letters, safe replay and overlapping runs. Traffic percentages for HTTP ingress do not necessarily control these workers. |
+| Batch, ETL, inference or specialized compute | Match duration, parallelism, memory, CPU/GPU/architecture, data movement, checkpoints and retry semantics. Verify quota and image compatibility. Cost the workload and storage/egress under realistic demand. |
+| Stateful service, database, broker or object store | Prefer an established managed dependency when it fits required versions, access and restore guarantees. Self-hosting needs explicit volume, identity, replication, failover, backup, upgrade and operational ownership. Verify whether backups can reconstruct an application-consistent state. |
+| Multi-service or cluster workload | Use an existing orchestrator or managed primitives that satisfy networking, service discovery, policy, scaling and release needs. Kubernetes is a candidate when its capabilities or existing footprint justify the operational burden. Plan cluster/control-plane and workload changes as distinct operations. |
+| Legacy runtime, custom OS/networking or portable small deployment | VM or bare metal with a service supervisor or containers and explicit patching, redundancy, backup and failure domain decisions. A single host can meet some workloads when its downtime and recovery limits are accepted. |
+
+Identify independently deployable units. A single repository can produce an API image, a migration job and a worker with different permissions and rollout controls. Tie each artifact to source and configuration. Keep session state and files outside disposable replicas when failover or horizontal scale requires it. For hybrid/edge designs, verify the path from each runtime to its dependencies, identity and DNS, private routing, expected latency, egress, data residence and who owns each control plane.
+
+Include build/registry, network egress/NAT, database, minimum instances or cluster nodes, storage/retention and observability in estimates. State date, traffic and uptime assumptions, known limits and what would change the recommendation. Use a small staging probe for an uncertain runtime contract before a material commitment.
+
+[Kubernetes workload controllers](https://kubernetes.io/docs/concepts/workloads/controllers/) · [Kubernetes probes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/)

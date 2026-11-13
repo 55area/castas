@@ -1,0 +1,4 @@
+interface:
+  display_name: "PentaPRO"
+  short_description: "Interview users and prepare software specifications"
+  default_prompt: "Use $penta-pro in the requested exploration, creation, resumption, update or review mode. Ask only about consequential gaps."
