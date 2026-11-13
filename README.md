@@ -70,3 +70,24 @@ For the web app's features, scoring details, and deployment, see the [web guide]
 ## Keeping both apps aligned
 
 The root [OpenSpec project](openspec/) is the source of product requirements for both apps. For a new or changed user-facing feature, its change should define acceptance scenarios for web and Android and cover both implementations. If a change is intentionally limited to one app, or the apps should behave differently, record that scope or difference explicitly. Keep shared questions, scoring, result formatting, and translations consistent, and verify each app affected by the change.
+
+## Data Privacy
+
+- **No personal data** is collected
+- **No cookies** are used for tracking
+- Test results are stored **only in your browser's localStorage**
+- **No server-side** storage of individual responses
+- Users can clear all data by clearing browser storage
+
+## License
+
+This project is licensed under the **GPL v3.0 License**.
+
+See [LICENSE](.etc/LICENSE) for more details.
+
+---
+
+<p align="center"><small>
+Copyleft © 2026 <a href="https://x.com/teknolista">Raul Bras</a> 🇧🇷 Published under the GPL v3.0 license. <br>
+Made in Brazil, in the Land of Oz (SP) , with 🌭 🍕 and AI 🤖.
+</small></p>
