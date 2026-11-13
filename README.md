@@ -1,9 +1,33 @@
-# Castas
+<p align="center">
+  <img src="docs/assets/icons/castas-icon.png" alt="Castas Logo" width="128">
+</p>
 
-Castas is an affective polarization questionnaire available as a web application and a native Android app. Both apps share the questionnaire's product requirements and the project documentation, while each keeps its own source, dependencies, and build configuration.
+<h1 align="center">Castas</h1>
 
 <p align="center">
-  <a href="https://www.castas.top">Web application</a> ·
+  <strong>Affective Polarization Test</strong><br>
+  <em>Check your level of polarization through an interactive questionnaire.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.castas.top" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Website-castas.top-orange?style=flat-square" alt="Website">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/55area/castas?style=flat-square" alt="License">
+  </a>
+  <img src="https://img.shields.io/badge/React-18-blue?style=flat-square&amp;logo=react" alt="React 18">
+  <img src="https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&amp;logo=typescript" alt="TypeScript">
+</p>
+
+<p align="center">
+  Castas is an affective polarization questionnaire available as a web application and a native Android app.
+</p>
+
+Both apps share the questionnaire's product requirements and the project documentation, while each keeps its own source, dependencies, and build configuration.
+
+<p align="center">
+  <a href="https://www.castas.top">www.castas.top</a> ·
   <a href="LICENSE">GPL-3.0</a>
 </p>
 
