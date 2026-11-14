@@ -22,6 +22,6 @@ Nine JVM tests passed. Lint reported zero errors and nine warnings per variant, 
 
 The five instrumented tests passed on a disposable Android 8.0 (API 26) emulator using `ANDROID_SERIAL=emulator-5554 ./gradlew --no-daemon :app:connectedDebugAndroidTest`.
 
-An Android 16 (API 36) AVD run completed four of five tests; the clipboard assertion could not read the clip because a system app took window focus. Android's clipboard API returns `null` without app focus. Repeated runs encountered `com.android.systemui` and other system-app ANR dialogs, including with host GPU and reduced display resolution. That AVD was not a reliable test target. Repeat the API 36 device suite on a stable emulator or physical device before Play submission. No API 36 test pass is claimed here.
+An Android 16 (API 36) AVD run completed four of five tests; the clipboard assertion could not read the clip because a system app took window focus. Android's clipboard API returns `null` without app focus. Repeated runs encountered `com.android.systemui` and other system-app ANR dialogs, including with host GPU and reduced display resolution. That local AVD was not a reliable test target. The CI workflow now repeats the API 36 suite on an AOSP Automated Test Device; a successful CI run is required before treating API 36 as verified. No local API 36 test pass is claimed here.
 
-GitHub Actions checks the build, JVM tests, lint, and packaging. Device tests are a separate release check. See the [production checklist](production.md) for signing and Play distribution steps.
+GitHub Actions checks the build, JVM tests, lint, packaging, and API 36 instrumented tests on an AOSP Automated Test Device. See the [production checklist](production.md) for signing and Play distribution steps.

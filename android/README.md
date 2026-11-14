@@ -31,7 +31,7 @@ ANDROID_SERIAL=DEVICE_SERIAL ./gradlew :app:connectedDebugAndroidTest
 
 On Linux, [`tools/android-preflight.sh`](tools/android-preflight.sh) checks emulator acceleration and, when given an ADB serial, waits for the device to finish booting and reports its API level. On Windows, use `gradlew.bat` and set `ANDROID_SERIAL` in PowerShell before running the instrumented task.
 
-The GitHub Actions workflow at [`.github/workflows/android.yml`](../.github/workflows/android.yml) runs the build, JVM tests, lint, and release packaging. Local device tests remain a separate check.
+The GitHub Actions workflow at [`.github/workflows/android.yml`](../.github/workflows/android.yml) runs the build, JVM tests, lint, release packaging, and instrumented tests on an API 36 AOSP Automated Test Device. Run local device tests on other Android versions as needed.
 
 ## Install on a device
 
