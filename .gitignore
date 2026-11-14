@@ -29,6 +29,26 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 **/.pnp.*
 **/.yarn-integrity
 
+# Android build state, local SDK files, device tooling, and signing material
+android/**/.gradle/
+android/**/.kotlin/
+android/**/build/
+android/**/local.properties
+android/**/captures/
+android/**/.externalNativeBuild/
+android/**/.cxx/
+android/**/*.apk
+android/**/*.aab
+android/**/output-metadata.json
+android/**/*.hprof
+android/**/*.jks
+android/**/*.keystore
+android/**/google-services.json
+
+# Temporary files from document editors
+docs/**/~$*
+docs/**/*.tmp
+
 # Local environment files
 **/.env
 **/.env.*
