@@ -2,7 +2,7 @@
 
 ## Local testing
 
-Open the `android/` Gradle project in Android Studio. Use its SDK Manager for platform 36, build-tools 35.0.0, and Platform-Tools, select JDK 21 as the Gradle JDK, and sync. Device Manager can use an API 26 phone and an API 36 tablet. On Linux, verify KVM in the same host shell that starts the AVD. Keep AVD writable data on a filesystem with sufficient free space.
+Open the `android/` Gradle project in an Android Studio version that supports AGP 9.5. Use its SDK Manager for platform 36, build-tools 36.0.0, and Platform-Tools, select JDK 25 as the Gradle JDK, and sync. The Gradle wrapper is 9.9.1. Device Manager can use an API 26 phone and an API 36 tablet. On Linux, verify KVM in the same host shell that starts the AVD. Keep AVD writable data on a filesystem with sufficient free space.
 
 Run [the preflight](../android/tools/android-preflight.sh) without arguments for the acceleration check and with the explicit ADB serial to confirm guest boot and API. A sandbox can hide `/dev/kvm` even when the host can use it. Software GPU rendering with SwiftShader can still use KVM for the guest CPU. When ADB sees a device before boot finishes, wait for `sys.boot_completed=1`. If host acceleration is unavailable, use a dedicated physical test phone or a runner with working virtualization.
 

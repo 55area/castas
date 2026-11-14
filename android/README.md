@@ -5,13 +5,13 @@ This directory contains the native Android app. The repository [README](../READM
 ## Requirements
 
 - Android 8.0 (API 26) or newer
-- JDK 21
-- Android SDK Platform 36 and Build-Tools 35.0.0
+- JDK 25 (Gradle runtime)
+- Android SDK Platform 36 and Build-Tools 36.0.0
 - Android SDK Platform-Tools for device installation and instrumented tests
 
-Use JDK 21 as the Gradle runtime in Android Studio and for command-line builds. The repository CI uses JDK 21 as well. With the current Kotlin Gradle scripts, running the wrapper on JDK 25 fails during project configuration; switch the Gradle JDK in Android Studio to JDK 21 or set `JAVA_HOME` before running Gradle.
+Use JDK 25 as the Gradle runtime in Android Studio and for command-line builds. CI uses JDK 25 too. The app still targets Java/Kotlin bytecode 17 for Android device compatibility; the Gradle runtime version does not change the minimum Android API.
 
-Open the `android/` directory in Android Studio. For command-line work, run Gradle commands from this directory. The checked-in wrapper uses Gradle 8.11.1, the minimum required by the project's Android Gradle Plugin 8.9.3, and verifies the distribution checksum.
+Open the `android/` directory in an Android Studio version that supports AGP 9.5. For command-line work, run Gradle commands from this directory. The checked-in wrapper uses Gradle 9.9.1 with a verified distribution checksum; the Android Gradle Plugin is 9.5.1 and uses built-in Kotlin.
 
 ## Build and verify
 

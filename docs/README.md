@@ -20,6 +20,7 @@ This directory contains shared product references and project-level documentatio
 - [Android implementation audit](auditoria-castas-android.md)
 - [Android closing audit](auditoria-fechamento-castas.md)
 - [Verification record](proof.md)
+- [JDK 25 and Gradle 9 migration verification](android-jdk25-gradle9-migration.md)
 - [Production and Play checklist](production.md)
 
 The single OpenSpec project is the repository-root [`openspec/`](../openspec/). It holds shared and platform-scoped specs and changes for both apps; the current Android capabilities remain Android-specific. New shared behavior must include acceptance scenarios for web and Android. The repository-root [`LICENSE`](../LICENSE) applies to both apps.
